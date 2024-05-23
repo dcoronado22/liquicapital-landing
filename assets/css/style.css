@@ -1679,6 +1679,19 @@ section {
     width: 45%;
   }
 
+  @media (max-width: 992px) {
+    .slider-container, 
+    .result-container {
+        width: 100% !important;
+    }
+    .slider-container{
+      margin-bottom: 50px;
+    }
+    .container{
+      display: block !important;
+    }
+  }
+
   .slider-container h3,
   .result-container h3 {
     margin-bottom: 10px;
