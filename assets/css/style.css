@@ -520,6 +520,9 @@ h6 {
   #hero .hero-img img {
     width: 80%;
   }
+  #hero .btn-get-started {
+    margin-top: 15px;
+  }
 }
 
 @keyframes up-down {
