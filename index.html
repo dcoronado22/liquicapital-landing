@@ -272,7 +272,7 @@
       </div>
       <div class="container">
         <div class="slider-container">
-          <h4 data-aos="fade-up">Monto total de tus facturas</h3>
+          <h5 data-aos="fade-up" style="text-align: center;">Monto total de tus CFDIs</h5>
             <input class="slider" type="range" id="amountRange" min="25000" max="1000000" value="180000"
               oninput="updateAmountValue(this.value)">
             <div class="slider-labels">
@@ -284,6 +284,8 @@
             </h4>
             <br>
             <h5 data-aos="fade-up" style="text-align: center;">¿Cuándo esperas recibir el pago de las facturas?</h5>
+            <input style="display: none;" id="daysValue" value="45"
+                oninput="updateDaysValue(this.value)">
             <div class="options">
               <div class="option" data-value="15">15</div>
               <div class="option" data-value="30">30</div>
@@ -295,13 +297,13 @@
         </div>
 
         <div class="result-container">
-          <h4><b>Simulación de una operación</b></h4>
-          <p>Monto total de tus Facturas: <span id="totalAmount">$180,000</span></p>
+          <h4 style="margin-bottom: 25px;"><b>Simulación de una operación</b></h4>
+          <!-- <p>Monto total de tus Facturas: <span id="totalAmount">$180,000</span></p>
           <p>Reserva (*depende del aforo): <span id="unfinancedAmount">$1,136,000</span></p>
           <p>Monto financiado: <span id="financedAmount">$55,664,000</span></p>
           <p>Costo financiero: <span id="totalCost">$1,753,220</span></p>
-          <br>
-          <h4 style="text-align: center;" class="highlight">Recibes: <span id="finalAmount">$53,910,780</span></h4>
+          <br> -->
+          <h4 class="highlight">Recibes: <span id="finalAmount">$170.383,227</span></h4>
           <br>
           <div style="text-align: center;">
             <div class="button" style="border-radius:50px" onclick="calculate()">Registrarme</div>
@@ -677,7 +679,7 @@
 
     <!-- ======= Team Section ======= -->
 
-    <section id="team" class="team">
+    <!-- <section id="team" class="team">
       <div class="container">
 
         <div class="section-title" data-aos="fade-up">
@@ -754,7 +756,7 @@
         </div>
 
       </div>
-    </section>
+    </section> -->
 
     <!-- End Team Section -->
 
@@ -1097,24 +1099,34 @@
     }
 
     function updateDaysValue(value) {
-      document.getElementById('daysValue').innerText = `${value} Días`;
+      document.getElementById('daysValue').value = value;
       calculate();
     }
 
     function calculate() {
       const amount = parseInt(document.getElementById('amountRange').value);
-      const days = parseInt(document.getElementById('daysRange').value);
+      const days = parseInt(document.getElementById('daysValue').value);
+      console.log('los días son: ', days)
 
-      const unfinancedAmount = amount * 0.02;
-      const financedAmount = amount - unfinancedAmount;
-      const totalCost = financedAmount * 0.0315;
-      const finalAmount = financedAmount - totalCost;
+      const exponente = (days/360)
+      console.log('El exponente es: ', exponente)
+      const portencia = Math.pow(1.32, exponente)
+      console.log('la potencia es: ', portencia)
+      const montoFinanciado = (amount*0.98)
+      console.log('El monto financiado es: ', montoFinanciado)
+      const valorDesembolso = (montoFinanciado/portencia)
+      console.log('El valor de desembolso es: ', valorDesembolso)
 
-      document.getElementById('totalAmount').innerText = `$${amount.toLocaleString()}`;
-      document.getElementById('unfinancedAmount').innerText = `$${unfinancedAmount.toLocaleString()}`;
-      document.getElementById('financedAmount').innerText = `$${financedAmount.toLocaleString()}`;
-      document.getElementById('totalCost').innerText = `$${totalCost.toLocaleString()}`;
-      document.getElementById('finalAmount').innerText = `$${finalAmount.toLocaleString()}`;
+      // const unfinancedAmount = amount * 0.02;
+      // const financedAmount = amount - unfinancedAmount;
+      // const totalCost = financedAmount * 0.0315;
+      // const finalAmount = financedAmount - totalCost;
+
+      // document.getElementById('totalAmount').innerText = `$${amount.toLocaleString()}`;
+      // document.getElementById('unfinancedAmount').innerText = `$${unfinancedAmount.toLocaleString()}`;
+      // document.getElementById('financedAmount').innerText = `$${financedAmount.toLocaleString()}`;
+      // document.getElementById('totalCost').innerText = `$${totalCost.toLocaleString()}`;
+      document.getElementById('finalAmount').innerText = `$${valorDesembolso.toLocaleString()}`;
     }
 
     // Initialize values
@@ -1127,7 +1139,7 @@
       option.addEventListener('click', () => {
         document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
         option.classList.add('selected');
-        console.log('Seleccionaste:', option.getAttribute('data-value'), 'días');
+        updateDaysValue(option.getAttribute('data-value'))
       });
     });
   </script>
