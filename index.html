@@ -9,6 +9,31 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+  <!-- Styles selector -->
+  <style>
+    .options {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .option {
+      border: 2px solid #1acc8d;
+      border-radius: 50px;
+      padding: 20px 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .option:hover {
+      background-color: #9feddb;
+    }
+    .option.selected {
+      background-color: #9feddb;
+      border-color: #1acc8d;
+      color: white;
+    }
+  </style>
+
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -214,7 +239,7 @@
 
     <!-- ======= SIMULADOR V1 ======= -->
 
-    <section id="simulador" class="container">
+    <!-- <section id="simulador" class="container">
 
       <div class="section-title" data-aos="fade-up">
         <h2>SIMULADOR</h2>
@@ -259,7 +284,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- End Simulador -->
 
     <!-- ======= SIMULADOR V2 ======= -->
@@ -272,7 +297,7 @@
       </div>
       <div class="container">
         <div class="slider-container">
-          <h4 data-aos="fade-up">Monto total de tus CFDIs</h3>
+          <h4 data-aos="fade-up">Monto total de tus facturas</h3>
             <input class="slider" type="range" id="amountRange" min="25000" max="1000000" value="180000"
               oninput="updateAmountValue(this.value)">
             <div class="slider-labels">
@@ -283,35 +308,18 @@
               <b>$180,000</b>
             </h4>
             <br>
-
-            <div class="container">
-              <p>¿Cuál es el plazo de pago en promedio</p>
-              <div class="options2">
-                <div class="option2" data-value="15">15</div>
-                <div class="option2" data-value="30">30</div>
-                <div class="option2" data-value="45">45</div>
-                <div class="option2" data-value="60">60</div>
-                <div class="option2" data-value="90">90</div>
-                <div class="option2" data-value="120">120</div>
-                <div class="option" data-value="180">180</div>
-              </div>
+            <h5 data-aos="fade-up" style="text-align: center;">¿Cuándo esperas recibir el pago de las facturas?</h5>
+            <div class="options">
+              <div class="option" data-value="15">15</div>
+              <div class="option" data-value="30">30</div>
+              <div class="option" data-value="60">60</div>
+              <div class="option" data-value="90">90</div>
+              <div class="option" data-value="120">120</div>            
             </div>
-
-
-            <h4 data-aos="fade-up">¿Cuál es el plazo de pago en promedio?</h3>
-              <input class="slider" type="range" id="daysRange" min="15" max="180" value="60"
-                oninput="updateDaysValue(this.value)">
-              <div class="slider-labels">
-                <span>15 Días</span>
-                <span>180 Días</span>
-              </div>
-              <h4 id="daysValue" style="text-align:center; background-color:#f0f0f0; padding:10px; border-radius:50px;">
-                <b>60 Días</b>
-              </h4>
         </div>
 
         <div class="result-container">
-          <h4><b>Simulación</b></h4>
+          <h4><b>Simulación de una operación</b></h4>
           <p>Monto total de tus Facturas: <span id="totalAmount">$180,000</span></p>
           <p>Reserva (*depende del aforo): <span id="unfinancedAmount">$1,136,000</span></p>
           <p>Monto financiado: <span id="financedAmount">$55,664,000</span></p>
@@ -320,7 +328,7 @@
           <h4 style="text-align: center;" class="highlight">Recibes: <span id="finalAmount">$53,910,780</span></h4>
           <br>
           <div style="text-align: center;">
-            <div class="button" onclick="calculate()">Registrarme</div>
+            <div class="button" style="border-radius:50px" onclick="calculate()">Registrarme</div>
           </div>
         </div>
       </div>
