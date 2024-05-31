@@ -1094,7 +1094,7 @@
   <!-- Simulador -->
   <script>
     function updateAmountValue(value) {
-      document.getElementById('amountValue').innerText = `$${parseInt(value).toLocaleString()}`;
+      document.getElementById('amountValue').innerText = `$${parseInt(value).toLocaleString('en-US')}`;
       calculate();
     }
 
