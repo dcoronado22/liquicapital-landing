@@ -303,7 +303,7 @@
           <p>Monto financiado: <span id="financedAmount">$55,664,000</span></p>
           <p>Costo financiero: <span id="totalCost">$1,753,220</span></p>
           <br> -->
-          <h4 class="highlight">Recibes: <span id="finalAmount">$170.383,227</span></h4>
+          <h4 class="highlight">Recibes: <span id="finalAmount">$170,383.227</span></h4>
           <br>
           <div style="text-align: center;">
             <a href="/" class="btn-get-started scrollto">Iniciar Ahora</a>
@@ -1106,16 +1106,10 @@
     function calculate() {
       const amount = parseInt(document.getElementById('amountRange').value);
       const days = parseInt(document.getElementById('daysValue').value);
-      console.log('los días son: ', days)
-
       const exponente = (days/360)
-      console.log('El exponente es: ', exponente)
       const portencia = Math.pow(1.32, exponente)
-      console.log('la potencia es: ', portencia)
       const montoFinanciado = (amount*0.98)
-      console.log('El monto financiado es: ', montoFinanciado)
       const valorDesembolso = (montoFinanciado/portencia)
-      console.log('El valor de desembolso es: ', valorDesembolso)
 
       // const unfinancedAmount = amount * 0.02;
       // const financedAmount = amount - unfinancedAmount;
@@ -1126,7 +1120,7 @@
       // document.getElementById('unfinancedAmount').innerText = `$${unfinancedAmount.toLocaleString()}`;
       // document.getElementById('financedAmount').innerText = `$${financedAmount.toLocaleString()}`;
       // document.getElementById('totalCost').innerText = `$${totalCost.toLocaleString()}`;
-      document.getElementById('finalAmount').innerText = `$${valorDesembolso.toLocaleString()}`;
+      document.getElementById('finalAmount').innerText = `$${valorDesembolso.toLocaleString('en-US')}`;
     }
 
     // Initialize values
