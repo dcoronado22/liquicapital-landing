@@ -303,7 +303,7 @@
           <p>Monto financiado: <span id="financedAmount">$55,664,000</span></p>
           <p>Costo financiero: <span id="totalCost">$1,753,220</span></p>
           <br> -->
-          <h4 class="highlight">Recibes: <span id="finalAmount">$170,383.227</span></h4>
+          <h4 class="highlight">Recibes: <span id="finalAmount">$170,383</span></h4>
           <br>
           <div style="text-align: center;">
             <a href="/" class="btn-get-started scrollto">Iniciar Ahora</a>
@@ -1109,7 +1109,7 @@
       const exponente = (days/360)
       const portencia = Math.pow(1.32, exponente)
       const montoFinanciado = (amount*0.98)
-      const valorDesembolso = (montoFinanciado/portencia)
+      const valorDesembolso = Math.round(montoFinanciado/portencia)
 
       // const unfinancedAmount = amount * 0.02;
       // const financedAmount = amount - unfinancedAmount;
