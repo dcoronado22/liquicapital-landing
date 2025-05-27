@@ -124,7 +124,7 @@ h6 {
 }
 
 #header.header-scrolled {
-  background: rgba(1, 29, 71, 0.841);
+  background: rgb(21, 38, 79);
   height: 60px;
 }
 
@@ -520,6 +520,7 @@ h6 {
   #hero .hero-img img {
     width: 80%;
   }
+
   #hero .btn-get-started {
     margin-top: 15px;
   }
@@ -609,7 +610,7 @@ section {
   font-size: 14px;
   font-weight: 500;
   padding: 0;
-  line-height: 1px;
+  line-height: 20px;
   margin: 0 0 5px 0;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -1683,14 +1684,17 @@ section {
   }
 
   @media (max-width: 992px) {
-    .slider-container, 
+
+    .slider-container,
     .result-container {
-        width: 100% !important;
+      width: 100% !important;
     }
-    .slider-container{
+
+    .slider-container {
       margin-bottom: 50px;
     }
-    .container{
+
+    .container {
       display: block !important;
     }
   }
@@ -1791,6 +1795,7 @@ section {
   gap: 10px;
   margin-top: 20px;
 }
+
 .option {
   border: 2px solid #1acc8d;
   border-radius: 50px;
@@ -1798,10 +1803,12 @@ section {
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 .option:hover {
   background-color: #1acc8d;
   color: white;
 }
+
 .option.selected {
   background-color: #1acc8d;
   color: white;
